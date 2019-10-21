@@ -4,7 +4,7 @@
 
 #include "Vending.h"
 
-using std::string;
+using namespace std;
 
 string VendingMachine::GetMessage () {
     return this->message;
