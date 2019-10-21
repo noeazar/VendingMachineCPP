@@ -14,9 +14,10 @@ class VendingMachine {
 
 public:
     VendingMachine() {};
-    string Display = "INSERT COIN";
 
-    string GetState();
+    string message = "INSERT COIN";
+
+    string GetMessage();
 };
 
 

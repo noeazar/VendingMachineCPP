@@ -6,11 +6,8 @@
 #include "Vending.h"
 
 
-TEST(VendingMachineTestSuite, ExampleDate){
+TEST(VendingMachineTestSuite, ShouldDisplayInitalStateMessage){
      VendingMachine vending;
 
-    EXPECT_EQ(vending.GetState(),"INSERT COIN");
-    vending.InsertCoins({"weight": 3, "size": "medium"});
-    EXPECT_EQ(vending.currentTotal(), 100);
-
+    EXPECT_EQ(vending.GetMessage(),"INSERT COIN");
 }
