@@ -4,7 +4,7 @@
 
 #include "Vending.h"
 
-std::string VendingMachine::setWorld (std::string text) {
-    World = text;
-    return World;
+std::string VendingMachine::getState () {
+    return Display;
 }
+

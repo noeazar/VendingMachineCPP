@@ -11,12 +11,12 @@ using std::string;
 
 class VendingMachine {
 
+
 public:
-
     VendingMachine() {};
-    string World = "Some Value";
+    string Display = "INSERT COIN";
 
-    string setWorld(string text);
+    string getState();
 };
 
 

@@ -7,7 +7,8 @@
 
 
 TEST(VendingMachineTestSuite, ExampleDate){
-     VendingMachine hello;
+     VendingMachine vending;
 
-    EXPECT_EQ(hello.setWorld("Hello World"),"Hello World");
+    EXPECT_EQ(vending.getState(),"INSERT COIN");
+
 }
