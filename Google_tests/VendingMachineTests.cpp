@@ -9,6 +9,8 @@
 TEST(VendingMachineTestSuite, ExampleDate){
      VendingMachine vending;
 
-    EXPECT_EQ(vending.getState(),"INSERT COIN");
+    EXPECT_EQ(vending.GetState(),"INSERT COIN");
+    vending.InsertCoins({"weight": 3, "size": "medium"});
+    EXPECT_EQ(vending.currentTotal(), 100);
 
 }

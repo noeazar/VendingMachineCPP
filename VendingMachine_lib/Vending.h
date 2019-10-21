@@ -16,7 +16,7 @@ public:
     VendingMachine() {};
     string Display = "INSERT COIN";
 
-    string getState();
+    string GetState();
 };
 
 

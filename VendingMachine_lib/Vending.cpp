@@ -4,7 +4,7 @@
 
 #include "Vending.h"
 
-std::string VendingMachine::getState () {
+std::string VendingMachine::GetState () {
     return Display;
 }
 
