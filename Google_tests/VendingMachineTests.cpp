@@ -20,6 +20,15 @@ TEST(VendingMachineTestSuite, ShouldDisplayCurrentCreditIfSelectionIsMade) {
     EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.00");
 }
 
+TEST(VendignMachineTestSuite, ShouldRejectPenies) {
+    VendingMachine vending;
+
+    Coin penny("Abraham");
+    vending.InsertCoin(penny);
+
+    EXPECT_EQ(vending.GetMessage(), "INVALID COIN");
+}
+
 TEST(VendignMachineTestSuite, ShouldDisplayTHANKYOUWhenProductIsSelectedAndPaidFor) {
     VendingMachine vending;
 
@@ -46,3 +55,22 @@ TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValueWhenProductIsNotSelec
 
     EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.30");
 }
+
+TEST(VendingMachineTestSuite, ShouldPlaceRemainingCoinsInCoinReturn){
+    VendingMachine vending;
+
+    Product cola("cola");
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    vending.SelectProduct(cola);
+
+    EXPECT_EQ(vending.CoinReturn, 0.25);
+}
+

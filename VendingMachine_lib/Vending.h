@@ -21,15 +21,17 @@ protected:
 public:
     ostringstream streamObj;
 
-    VendingMachine() {};
+    VendingMachine() = default;
+
+    float CoinReturn = 0.0;
 
     string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
 
     string GetMessage();
 
-    void InsertCoin(Coin c);
+    void InsertCoin(const Coin& c);
 
-    void SelectProduct(Product value);
+    void SelectProduct(const Product& value);
 
 private:
     string FormatDisplay(float credit);
