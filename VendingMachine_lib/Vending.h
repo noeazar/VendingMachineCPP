@@ -14,7 +14,7 @@ using namespace std;
 class VendingMachine {
 
 protected:
-    float credit;
+    float credit = 0.0;
 
 public:
     ostringstream streamObj;
@@ -25,9 +25,7 @@ public:
 
     string GetMessage();
 
-    void InsertCoin(Coin c) {
-        this->credit = 0.25;
-    }
+    void InsertCoin(Coin c);
 
 private:
     string FormatDisplay(float credit);

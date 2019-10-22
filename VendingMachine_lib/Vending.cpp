@@ -22,4 +22,9 @@ string VendingMachine::FormatDisplay(float credit) {
     return streamObj.str();
 }
 
+void VendingMachine::InsertCoin(Coin c) {
+    int val = credit + c.value;
+    this->credit = val;
+}
+
 
