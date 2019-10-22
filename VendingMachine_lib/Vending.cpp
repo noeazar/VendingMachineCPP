@@ -3,10 +3,18 @@
 //
 
 #include "Vending.h"
+#include <math.h>
 
 using namespace std;
 
 string VendingMachine::GetMessage () {
-    return this->message;
+    int cred = printf("%.002f", credit);;
+    if ( credit > 0.0 ) {
+        return "CREDIT: $" + std::to_string( cred );
+    } else {
+        return this->message;
+    }
+
 }
+
 
