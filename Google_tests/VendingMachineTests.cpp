@@ -55,3 +55,36 @@ TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValueWhenProductIsNotSelec
 
     EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.30");
 }
+
+TEST(VendingMachineTestSuite, ShouldPlaceRemainingCoinsInCoinReturn){
+    VendingMachine vending;
+
+    Product cola("cola");
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    vending.SelectProduct(cola);
+
+    EXPECT_EQ(vending.CoinReturn, 0.25);
+}
+
+TEST(VendingMachineTestSuite, ShouldDisplayINSERTCOINAfterCoinReturnIsPressed){
+    VendingMachine vending;
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    vending.ReturnCoin();
+
+    EXPECT_EQ(vending.GetMessage(), "INSERT COIN");
+
+}

@@ -42,6 +42,9 @@ void VendingMachine::InsertCoin(const Coin& c) {
 }
 
 void VendingMachine::SelectProduct(const Product& selected_product) {
+    if (selected_product.value < credit){
+        CoinReturn = credit - selected_product.value;
+    }
     this->product_cost = selected_product.value;
 }
 
