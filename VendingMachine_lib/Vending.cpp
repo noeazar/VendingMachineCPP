@@ -3,18 +3,23 @@
 //
 
 #include "Vending.h"
-#include <math.h>
+#include <sstream>
 
 using namespace std;
 
 string VendingMachine::GetMessage () {
-    int cred = printf("%.002f", credit);;
+
     if ( credit > 0.0 ) {
-        return "CREDIT: $" + std::to_string( cred );
+        return "CREDIT: $" + FormatDisplay(credit);
     } else {
         return this->message;
     }
 
+}
+
+string VendingMachine::FormatDisplay(float credit) {
+    streamObj << credit;
+    return streamObj.str();
 }
 
 

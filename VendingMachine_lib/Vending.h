@@ -3,6 +3,7 @@
 //
 #include <string>
 #include "Coin.h"
+#include <sstream>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ protected:
     float credit;
 
 public:
+    ostringstream streamObj;
+
     VendingMachine() {};
 
     string message = "INSERT COIN";
@@ -25,6 +28,9 @@ public:
     void InsertCoin(Coin c) {
         this->credit = 0.25;
     }
+
+private:
+    string FormatDisplay(float credit);
 };
 
 
