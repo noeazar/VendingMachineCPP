@@ -16,21 +16,29 @@ string VendingMachine::FormatDisplay(float value) {
     return streamObj.str();
 }
 
-string VendingMachine::GetMessage () {
-    if ( product_cost > 0.0 &&  credit > 0.0 ) {
-        return "CREDIT: $" + FormatDisplay(credit);
-    } else if ( product_cost > 0 && credit < product_cost) {
-        return "CREDIT: $" + FormatDisplay(credit);
-    } else {
-        return this->message;
+string VendingMachine::GetMessage() {
+    if (product_cost > 0.0) {
+        if (credit >= product_cost) {
+            return "THANK YOU";
+        } else if (credit > 0.0) {
+            return "CREDIT: $" + FormatDisplay(credit);
+        } else if (credit < product_cost) {
+            return "CREDIT: $" + FormatDisplay(credit);
+        }
     }
+
+    if (product_cost == 0 && credit > 0) {
+        return "CREDIT: $" + FormatDisplay(credit);
+    }
+
+    return this->message;
 }
 
 void VendingMachine::InsertCoin(Coin c) {
     this->credit += c.value;
 }
 
-void VendingMachine::SelectProduct(Product selected_product){
+void VendingMachine::SelectProduct(Product selected_product) {
     this->product_cost = selected_product.value;
 }
 

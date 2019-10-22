@@ -22,7 +22,10 @@ TEST(VendingMachineTestSuite, ShouldDisplayCurrentCreditIfSelectionIsMade) {
 
 TEST(VendignMachineTestSuite, ShouldDisplayTHANKYOUWhenProductIsSelectedAndPaidFor) {
     VendingMachine vending;
+
     Product cola("cola");
+    vending.SelectProduct(cola);
+
     Coin coin("Washington");
     vending.InsertCoin(coin);
     vending.InsertCoin(coin);
@@ -32,7 +35,7 @@ TEST(VendignMachineTestSuite, ShouldDisplayTHANKYOUWhenProductIsSelectedAndPaidF
     EXPECT_EQ(vending.GetMessage(), "THANK YOU");
 }
 
-TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValue) {
+TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValueWhenProductIsNotSelected) {
     VendingMachine vending;
 
     Coin quarter("Washington");
