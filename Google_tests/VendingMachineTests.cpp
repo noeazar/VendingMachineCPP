@@ -74,3 +74,17 @@ TEST(VendingMachineTestSuite, ShouldPlaceRemainingCoinsInCoinReturn){
     EXPECT_EQ(vending.CoinReturn, 0.25);
 }
 
+TEST(VendingMachineTestSuite, ShouldDisplayINSERTCOINAfterCoinReturnIsPressed){
+    VendingMachine vending;
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    vending.ReturnCoin();
+
+    EXPECT_EQ(vending.GetMessage(), "INSERT COIN");
+
+}
