@@ -88,3 +88,14 @@ TEST(VendingMachineTestSuite, ShouldDisplayInitialMessageWhenTransactionIsCancel
     EXPECT_EQ(vending.GetMessage(), "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65");
 
 }
+
+TEST(VendingMachineTestSuite, ShouldDisplaySoldOutMessageWhenSelectedProductIsOutOfStock) {
+    VendingMachine vending;
+
+    Product cola("cola");
+    cola.in_stock = false;
+    vending.SelectProduct(cola);
+
+    EXPECT_EQ(vending.GetMessage(), "SOLD OUT");
+
+}

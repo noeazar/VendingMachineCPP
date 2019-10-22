@@ -42,10 +42,15 @@ void VendingMachine::InsertCoin(const Coin& c) {
 }
 
 void VendingMachine::SelectProduct(const Product& selected_product) {
-    if (selected_product.value < credit){
-        coin_return = credit - selected_product.value;
+    if (selected_product.in_stock) {
+        if (selected_product.value < credit){
+            coin_return = credit - selected_product.value;
+        }
+        this->product_cost = selected_product.value;
+    } else {
+        this->message = "SOLD OUT";
     }
-    this->product_cost = selected_product.value;
+
 }
 
 void VendingMachine::ReturnCoin() {

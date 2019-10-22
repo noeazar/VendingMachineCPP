@@ -11,13 +11,14 @@ class Product {
 public:
     string type;
     float value;
+    bool in_stock = true;
 
-    explicit Product(string val) {
-        if( val == "cola" ){
+    explicit Product(const string& val) {
+        if (val == "cola") {
             value = 1.00;
-        }else if( val == "chips" ){
+        } else if (val == "chips") {
             value = 0.50;
-        }else if( val == "candy" ){
+        } else if (val == "candy") {
             value = 0.65;
         }
         this->type = move(type);
