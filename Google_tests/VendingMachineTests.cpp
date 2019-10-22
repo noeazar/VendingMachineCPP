@@ -71,10 +71,10 @@ TEST(VendingMachineTestSuite, ShouldPlaceRemainingCoinsInCoinReturn){
 
     vending.SelectProduct(cola);
 
-    EXPECT_EQ(vending.CoinReturn, 0.25);
+    EXPECT_EQ(vending.coin_return, 0.25);
 }
 
-TEST(VendingMachineTestSuite, ShouldDisplayINSERTCOINAfterCoinReturnIsPressed){
+TEST(VendingMachineTestSuite, ShouldDisplayInitialMessageWhenTransactionIsCancelled){
     VendingMachine vending;
 
     Coin coin("Washington");
@@ -85,6 +85,6 @@ TEST(VendingMachineTestSuite, ShouldDisplayINSERTCOINAfterCoinReturnIsPressed){
 
     vending.ReturnCoin();
 
-    EXPECT_EQ(vending.GetMessage(), "INSERT COIN");
+    EXPECT_EQ(vending.GetMessage(), "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65");
 
 }

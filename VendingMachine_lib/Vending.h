@@ -23,7 +23,7 @@ public:
 
     VendingMachine() = default;
 
-    float CoinReturn = 0.0;
+    float coin_return = 0.0;
 
     string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
 
@@ -32,6 +32,8 @@ public:
     void InsertCoin(const Coin& c);
 
     void SelectProduct(const Product& value);
+
+    void ReturnCoin();
 
 private:
     string FormatDisplay(float credit);
