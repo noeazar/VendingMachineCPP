@@ -11,11 +11,23 @@ TEST(VendingMachineTestSuite, ShouldDisplayInitalStateMessage) {
     EXPECT_EQ(vending.GetMessage(), "INSERT COIN");
 }
 
-TEST(VendignMachineTestSuite, ShouldDisplayCoinValue) {
+TEST(VendignMachineTestSuite, ShouldDisplayQuarterValue) {
     VendingMachine vending;
 
     Coin coin("Washington");
     vending.InsertCoin(coin);
 
     EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.25");
+}
+
+TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValue) {
+    VendingMachine vending;
+
+    Coin quarter("Washington");
+    Coin nickel("Jefferson");
+
+    vending.InsertCoin(quarter);
+    vending.InsertCoin(nickel);
+
+    EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.30");
 }
