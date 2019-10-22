@@ -20,6 +20,15 @@ TEST(VendingMachineTestSuite, ShouldDisplayCurrentCreditIfSelectionIsMade) {
     EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.00");
 }
 
+TEST(VendignMachineTestSuite, ShouldRejectPenies) {
+    VendingMachine vending;
+
+    Coin penny("Abraham");
+    vending.InsertCoin(penny);
+
+    EXPECT_EQ(vending.GetMessage(), "INVALID COIN");
+}
+
 TEST(VendignMachineTestSuite, ShouldDisplayTHANKYOUWhenProductIsSelectedAndPaidFor) {
     VendingMachine vending;
 

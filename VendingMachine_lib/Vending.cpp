@@ -34,11 +34,14 @@ string VendingMachine::GetMessage() {
     return this->message;
 }
 
-void VendingMachine::InsertCoin(Coin c) {
+void VendingMachine::InsertCoin(const Coin& c) {
+    if (c.value == 0.0) {
+        this->message = "INVALID COIN";
+    }
     this->credit += c.value;
 }
 
-void VendingMachine::SelectProduct(Product selected_product) {
+void VendingMachine::SelectProduct(const Product& selected_product) {
     this->product_cost = selected_product.value;
 }
 

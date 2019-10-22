@@ -10,20 +10,20 @@
 using namespace std;
 
 class Coin {
-    public:
-        string faceImage;
-        float value;
+public:
+    string faceImage;
+    float value = 0.0;
 
-        explicit Coin(string faceImage) {
-            if( faceImage == "Washington" ){
-                value = 0.25;
-            }else if( faceImage == "Roosevelt" ){
-                value = 0.10;
-            }else if( faceImage == "Jefferson" ){
-                value = 0.05;
-            }
-            this->faceImage = move(faceImage);
-        };
+    explicit Coin(string faceImage) {
+        if (faceImage == "Washington") {
+            value = 0.25;
+        } else if (faceImage == "Roosevelt") {
+            value = 0.10;
+        } else if (faceImage == "Jefferson") {
+            value = 0.05;
+        }
+        this->faceImage = move(faceImage);
+    };
 };
 
 
