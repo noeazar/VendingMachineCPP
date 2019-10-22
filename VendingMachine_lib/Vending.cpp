@@ -4,11 +4,11 @@
 
 #include "Vending.h"
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
 string VendingMachine::GetMessage () {
-
     if ( credit > 0.0 ) {
         return "CREDIT: $" + FormatDisplay(credit);
     } else {
@@ -17,14 +17,15 @@ string VendingMachine::GetMessage () {
 
 }
 
-string VendingMachine::FormatDisplay(float credit) {
-    streamObj << credit;
+string VendingMachine::FormatDisplay(float value) {
+    streamObj << fixed;
+    streamObj << setprecision(2);
+    streamObj << value;
     return streamObj.str();
 }
 
 void VendingMachine::InsertCoin(Coin c) {
-    int val = credit + c.value;
-    this->credit = val;
+    this->credit += c.value;
 }
 
 
