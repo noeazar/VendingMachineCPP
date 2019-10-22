@@ -5,19 +5,31 @@
 #include "gtest/gtest.h"
 #include "Vending.h"
 #include "Coin.h"
+#include "Product.h"
 
 TEST(VendingMachineTestSuite, ShouldDisplayInitalStateMessage) {
     VendingMachine vending;
-    EXPECT_EQ(vending.GetMessage(), "INSERT COIN");
+    EXPECT_EQ(vending.GetMessage(), "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65");
 }
 
-TEST(VendignMachineTestSuite, ShouldDisplayQuarterValue) {
+TEST(VendingMachineTestSuite, ShouldDisplayCurrentCreditIfSelectionIsMade) {
     VendingMachine vending;
+    Product cola("cola");
+    vending.SelectProduct(cola);
 
+    EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.00");
+}
+
+TEST(VendignMachineTestSuite, ShouldDisplayTHANKYOUWhenProductIsSelectedAndPaidFor) {
+    VendingMachine vending;
+    Product cola("cola");
     Coin coin("Washington");
     vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
 
-    EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.25");
+    EXPECT_EQ(vending.GetMessage(), "THANK YOU");
 }
 
 TEST(VendignMachineTestSuite, ShouldDisplayTotalCreditValue) {

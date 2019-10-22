@@ -24,10 +24,6 @@ class Coin {
             }
             this->faceImage = move(faceImage);
         };
-
-        string GetImage() {
-            return this->faceImage;
-        }
 };
 
 

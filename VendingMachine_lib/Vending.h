@@ -3,6 +3,7 @@
 //
 #include <string>
 #include "Coin.h"
+#include "Product.h"
 #include <sstream>
 
 using namespace std;
@@ -15,17 +16,20 @@ class VendingMachine {
 
 protected:
     float credit = 0.0;
+    float product_cost = 0.0;
 
 public:
     ostringstream streamObj;
 
     VendingMachine() {};
 
-    string message = "INSERT COIN";
+    string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
 
     string GetMessage();
 
     void InsertCoin(Coin c);
+
+    void SelectProduct(Product value);
 
 private:
     string FormatDisplay(float credit);

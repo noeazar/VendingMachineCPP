@@ -8,4 +8,4 @@ set(SOURCE_FILES
         Vending.cpp
         )
 
-add_library(VendingMachine_lib STATIC ${SOURCE_FILES} ${HEADER_FILES} Coin.cpp Coin.h Coin.cpp Coin.h)
+add_library(VendingMachine_lib STATIC ${SOURCE_FILES} ${HEADER_FILES} Coin.h Coin.h)
