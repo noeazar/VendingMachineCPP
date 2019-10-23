@@ -21,8 +21,8 @@ public:
     bool exact_change_only = false;
     string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
 
+    void ClearCoinReturn();
     string GetMessage();
-
     void InsertCoin(const Coin& c);
     void ReturnCoin();
     void SelectProduct(const Product& value);

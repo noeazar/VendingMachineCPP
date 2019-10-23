@@ -119,6 +119,36 @@ TEST(VendingMachineTestSuite, ShouldDisplayAmountDueWhenProductIsSelected){
     EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
 }
 
+TEST(VendingMachineTestSuite, ShouldHaveValueInCoinReturnWhenPurchaseIsMadeWithLeftoverChange){
+    VendingMachine vending;
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    Product chips("chips");
+
+    EXPECT_EQ(vending.coin_return, 0.0);
+
+    vending.SelectProduct(chips);
+
+    EXPECT_EQ(vending.GetMessage(), "THANK YOU");
+
+    EXPECT_EQ(vending.coin_return, .25);
+}
+
+TEST(VendingMachineTestSuite, ShouldBeZeroWhenGetChangeIsCalled){
+    VendingMachine vending;
+
+    vending.coin_return = .25;
+
+    vending.ClearCoinReturn();
+
+    EXPECT_EQ(vending.coin_return, 0.0);
+}
+
 TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
     VendingMachine vending;
     Product cola("cola");

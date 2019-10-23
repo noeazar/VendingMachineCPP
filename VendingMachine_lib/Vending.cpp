@@ -15,6 +15,10 @@ string VendingMachine::FormatDisplay(long double value) {
     return oss.str();
 }
 
+void VendingMachine::ClearCoinReturn(){
+    this->coin_return = 0.0;
+}
+
 string VendingMachine::GetMessage() {
     if (exact_change_only == true) {
         return "EXACT CHANGE ONLY";
@@ -24,6 +28,7 @@ string VendingMachine::GetMessage() {
         long double difference = product_cost - credit;
 
         if (credit >= product_cost) {
+            coin_return = credit - product_cost;
             this->credit = 0.0;
             this->product_cost = 0.0;
             return "THANK YOU";
@@ -68,6 +73,6 @@ void VendingMachine::ReturnCoin() {
 
 Coin * VendingMachine::GetCoinReturn() {
     Coin quarter("Washington");
-    Coin change[] = {quarter};
+    Coin change[] = {quarter, quarter};
     return change;
 }

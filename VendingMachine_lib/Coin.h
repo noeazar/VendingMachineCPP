@@ -12,7 +12,7 @@ using namespace std;
 class Coin {
 public:
     string faceImage;
-    float value = 0.0;
+    long double value = 0.0;
 
     explicit Coin(string faceImage) {
         if (faceImage == "Washington") {
