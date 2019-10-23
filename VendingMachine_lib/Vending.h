@@ -17,7 +17,7 @@ class VendingMachine {
 public:
     VendingMachine() = default;
 
-    float coin_return = 0.0;
+    long double coin_return = 0.0;
     bool exact_change_only = false;
     string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
     ostringstream streamObj;
@@ -29,11 +29,11 @@ public:
     void SelectProduct(const Product& value);
 
 protected:
-    float credit = 0.0;
-    float product_cost = 0.0;
+    long double credit = 0;
+    long double product_cost = 0;
 
 private:
-    string FormatDisplay(float credit);
+    string FormatDisplay(long double credit);
 };
 
 

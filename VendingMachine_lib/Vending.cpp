@@ -9,7 +9,7 @@
 
 using namespace std;
 
-string VendingMachine::FormatDisplay(float value) {
+string VendingMachine::FormatDisplay(long double value) {
     streamObj << fixed;
     streamObj << setprecision(2);
     streamObj << value;
@@ -17,17 +17,22 @@ string VendingMachine::FormatDisplay(float value) {
 }
 
 string VendingMachine::GetMessage() {
-    if (exact_change_only == true){
+    if (exact_change_only == true) {
         return "EXACT CHANGE ONLY";
     }
 
     if (product_cost > 0.0) {
+        long double difference = product_cost - credit;
+
         if (credit >= product_cost) {
+            this->credit = 0.0;
+            this->product_cost;
             return "THANK YOU";
         } else if (credit > 0.0) {
-            return "CREDIT: $" + FormatDisplay(credit);
+            string stringified_value = FormatDisplay(difference);
+            return "AMOUNT DUE: $" + FormatDisplay(difference);
         } else if (credit < product_cost) {
-            return "CREDIT: $" + FormatDisplay(credit);
+            return "AMOUNT DUE: $" + FormatDisplay(difference);
         }
     }
 
@@ -38,16 +43,16 @@ string VendingMachine::GetMessage() {
     return this->message;
 }
 
-void VendingMachine::InsertCoin(const Coin& c) {
+void VendingMachine::InsertCoin(const Coin &c) {
     if (c.value == 0.0) {
         this->message = "INVALID COIN";
     }
     this->credit += c.value;
 }
 
-void VendingMachine::SelectProduct(const Product& selected_product) {
+void VendingMachine::SelectProduct(const Product &selected_product) {
     if (selected_product.in_stock) {
-        if (selected_product.value < credit){
+        if (selected_product.value < credit) {
             coin_return = credit - selected_product.value;
         }
         this->product_cost = selected_product.value;

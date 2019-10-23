@@ -109,3 +109,33 @@ TEST(VendingMachineTestSuite, ShouldDisplayEXACTCHANGEONLYWhenMachineRequiresIt)
 
     EXPECT_EQ(vending.GetMessage(), "EXACT CHANGE ONLY");
 }
+
+TEST(VendingMachineTestSuite, ShouldDisplayAmountDueWhenProductIsSelected){
+    VendingMachine vending;
+    Product cola("cola");
+
+    vending.SelectProduct(cola);
+
+    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
+}
+
+TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
+    VendingMachine vending;
+    Product cola("cola");
+
+    vending.SelectProduct(cola);
+
+//    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
+
+    Coin coin("Washington");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $0.50");
+
+    vending.InsertCoin(coin);
+    vending.InsertCoin(coin);
+
+
+}
