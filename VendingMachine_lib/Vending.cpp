@@ -65,3 +65,9 @@ void VendingMachine::ReturnCoin() {
     this->credit = 0.00;
     this->product_cost = 0.00;
 }
+
+Coin * VendingMachine::GetCoinReturn() {
+    Coin quarter("Washington");
+    Coin change[] = {quarter};
+    return change;
+}

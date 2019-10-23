@@ -4,7 +4,7 @@ add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 
-add_executable(Google_Tests_run VendingMachineTests.cpp)
+add_executable(Google_Tests_run VendingMachineTests.cpp CoinChangeTests.cpp)
 
 target_link_libraries(Google_Tests_run VendingMachine_lib)
 

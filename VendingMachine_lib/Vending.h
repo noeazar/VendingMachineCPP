@@ -26,6 +26,7 @@ public:
     void InsertCoin(const Coin& c);
     void ReturnCoin();
     void SelectProduct(const Product& value);
+    static Coin * GetCoinReturn();
 
 protected:
     long double credit = 0;
