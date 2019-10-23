@@ -99,3 +99,13 @@ TEST(VendingMachineTestSuite, ShouldDisplaySoldOutMessageWhenSelectedProductIsOu
     EXPECT_EQ(vending.GetMessage(), "SOLD OUT");
 
 }
+
+TEST(VendingMachineTestSuite, ShouldDisplayEXACTCHANGEONLYWhenMachineRequiresIt){
+    VendingMachine vending;
+    Product cola("cola");
+
+    vending.exact_change_only = true;
+    vending.SelectProduct(cola);
+
+    EXPECT_EQ(vending.GetMessage(), "EXACT CHANGE ONLY");
+}

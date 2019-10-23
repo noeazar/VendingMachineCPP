@@ -17,6 +17,10 @@ string VendingMachine::FormatDisplay(float value) {
 }
 
 string VendingMachine::GetMessage() {
+    if (exact_change_only == true){
+        return "EXACT CHANGE ONLY";
+    }
+
     if (product_cost > 0.0) {
         if (credit >= product_cost) {
             return "THANK YOU";
