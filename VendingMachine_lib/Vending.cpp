@@ -25,7 +25,7 @@ string VendingMachine::GetMessage() {
 
         if (credit >= product_cost) {
             this->credit = 0.0;
-            this->product_cost;
+            this->product_cost = 0.0;
             return "THANK YOU";
         } else if (credit > 0.0) {
             string stringified_value = FormatDisplay(difference);

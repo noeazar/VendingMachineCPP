@@ -137,4 +137,7 @@ TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
     vending.InsertCoin(coin);
     vending.InsertCoin(coin);
 
+    EXPECT_EQ(vending.GetMessage(), "THANK YOU");
+
+    EXPECT_EQ(vending.GetMessage(), "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65");
 }
