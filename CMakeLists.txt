@@ -11,4 +11,4 @@ add_subdirectory(VendingMachine_lib)
 
 target_link_libraries(VendingMachine_run VendingMachine_lib)
 
-add_subdirectory(Google_tests)
+add_subdirectory(Tests)
