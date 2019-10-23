@@ -10,10 +10,9 @@
 using namespace std;
 
 string VendingMachine::FormatDisplay(long double value) {
-    streamObj << fixed;
-    streamObj << setprecision(2);
-    streamObj << value;
-    return streamObj.str();
+    std::ostringstream oss;
+    oss << std::fixed << std::setprecision(2) << value;
+    return oss.str();
 }
 
 string VendingMachine::GetMessage() {

@@ -20,7 +20,6 @@ public:
     long double coin_return = 0.0;
     bool exact_change_only = false;
     string message = "SELECT PRODUCT: cola - $1.00, chips - $0.50, and candy - $0.65";
-    ostringstream streamObj;
 
     string GetMessage();
 

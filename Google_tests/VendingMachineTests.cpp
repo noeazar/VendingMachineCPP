@@ -17,7 +17,7 @@ TEST(VendingMachineTestSuite, ShouldDisplayCurrentCreditIfSelectionIsMade) {
     Product cola("cola");
     vending.SelectProduct(cola);
 
-    EXPECT_EQ(vending.GetMessage(), "CREDIT: $0.00");
+    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
 }
 
 TEST(VendignMachineTestSuite, ShouldRejectPenies) {
@@ -125,7 +125,7 @@ TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
 
     vending.SelectProduct(cola);
 
-//    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
+    EXPECT_EQ(vending.GetMessage(), "AMOUNT DUE: $1.00");
 
     Coin coin("Washington");
 
@@ -136,6 +136,5 @@ TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
 
     vending.InsertCoin(coin);
     vending.InsertCoin(coin);
-
 
 }
