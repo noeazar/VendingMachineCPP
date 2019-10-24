@@ -3,23 +3,11 @@
 //
 #include "gtest/gtest.h"
 #include "Vending.h"
-#include "Coin.h"
 #include "Product.h"
 #include<vector>
 #include<list>
 
 using namespace std;
-
-//static auto Total(const Coin coins[]) {
-//    auto total = 0;
-//    int num_elements = sizeof( coins ) / sizeof( coins[0] );
-//
-//    for(int i=0; i <= num_elements ; i++) {
-//        total += coins[i].value;
-//    }
-//
-//    return total;
-//};
 
 TEST(VendingMachineTestSuite, ShouldBeZeroWhenGetChangeIsCalled){
     VendingMachine vending;
@@ -56,7 +44,7 @@ TEST(CoinChange, ShouldReturnCorrectChange) {
     vending.SelectProduct(chips);
 
     vector<Coin> change = {quarter};
-    vector<Coin> returned_coins = vending.GetCoinReturn();
+    vector<Coin> returned_coins = VendingMachine::GetCoinReturn();
     EXPECT_EQ(vending.GetCoinReturn()[0].value,  0.25);
 
     EXPECT_EQ(vending.GetCoinReturn().size(), 1);

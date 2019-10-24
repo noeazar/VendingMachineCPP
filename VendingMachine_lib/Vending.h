@@ -8,10 +8,6 @@
 
 using namespace std;
 
-#ifndef VENDINGMACHINECPP_VENDING_H
-#define VENDINGMACHINECPP_VENDING_H
-
-
 class VendingMachine {
 
 public:
@@ -36,5 +32,3 @@ private:
     string FormatDisplay(long double credit);
 };
 
-
-#endif //VENDINGMACHINECPP_VENDING_H

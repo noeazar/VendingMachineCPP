@@ -4,9 +4,10 @@
 // Created by noe.azar.vargas on 10/21/19.
 //
 
-#ifndef TESTING_TEST_COIN_H
-#define TESTING_TEST_COIN_H
+#ifndef COIN_H
+#define COIN_H
 
+#include <string>
 using namespace std;
 
 class Coin {
@@ -27,4 +28,4 @@ public:
 };
 
 
-#endif //TESTING_TEST_COIN_H
+#endif //COIN_H
