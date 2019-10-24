@@ -26,7 +26,7 @@ public:
     void InsertCoin(const Coin& c);
     void ReturnCoin();
     void SelectProduct(const Product& value);
-    static Coin * GetCoinReturn();
+    static vector<Coin> GetCoinReturn();
 
 protected:
     long double credit = 0;

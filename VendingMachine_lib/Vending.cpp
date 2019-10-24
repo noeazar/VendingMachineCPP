@@ -6,6 +6,7 @@
 #include "Product.h"
 #include <sstream>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ void VendingMachine::ClearCoinReturn(){
 }
 
 string VendingMachine::GetMessage() {
-    if (exact_change_only == true) {
+    if (exact_change_only) {
         return "EXACT CHANGE ONLY";
     }
 
@@ -71,8 +72,9 @@ void VendingMachine::ReturnCoin() {
     this->product_cost = 0.00;
 }
 
-Coin * VendingMachine::GetCoinReturn() {
+vector<Coin> VendingMachine::GetCoinReturn() {
     Coin quarter("Washington");
-    Coin change[] = {quarter, quarter};
+    Coin quarter2("Washington");
+    vector<Coin> change{quarter};
     return change;
 }

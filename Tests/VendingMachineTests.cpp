@@ -139,16 +139,6 @@ TEST(VendingMachineTestSuite, ShouldHaveValueInCoinReturnWhenPurchaseIsMadeWithL
     EXPECT_EQ(vending.coin_return, .25);
 }
 
-TEST(VendingMachineTestSuite, ShouldBeZeroWhenGetChangeIsCalled){
-    VendingMachine vending;
-
-    vending.coin_return = .25;
-
-    vending.ClearCoinReturn();
-
-    EXPECT_EQ(vending.coin_return, 0.0);
-}
-
 TEST(VendingMachineTestSuite, ShouldAllowForMultipleTransactions){
     VendingMachine vending;
     Product cola("cola");
